@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Local Business Finder</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.css" />
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>🔐 Admin Panel</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" onclick="showSection('dashboard')" class="nav-item active">
+                    📊 Dashboard
+                </a>
+                <a href="#" onclick="showSection('pending')" class="nav-item">
+                    ⏳ Pending Approvals <span id="pendingCount" class="badge">0</span>
+                </a>
+                <a href="#" onclick="showSection('businesses')" class="nav-item">
+                    🏪 All Businesses
+                </a>
+                <a href="#" onclick="showSection('users')" class="nav-item">
+                    👥 Users
+                </a>
+                <a href="#" onclick="showSection('heatmap')" class="nav-item">
+                    🗺️ Heatmap
+                </a>
+                <a href="#" onclick="showSection('analytics')" class="nav-item">
+                    📈 Analytics
+                </a>
+                <a href="index.html" class="nav-item logout">
+                    🚪 Back to Site
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <h1 id="sectionTitle">Dashboard</h1>
+                <div class="user-info">
+                    <span id="adminName">Admin</span>
+                    <button onclick="logout()" class="btn-logout">Logout</button>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboardSection" class="section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🏪</div>
+                        <div class="stat-info">
+                            <h3 id="totalBusinesses">0</h3>
+                            <p>Total Businesses</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⏳</div>
+                        <div class="stat-info">
+                            <h3 id="pendingBusinesses">0</h3>
+                            <p>Pending Approval</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-info">
+                            <h3 id="approvedBusinesses">0</h3>
+                            <p>Approved</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <h3 id="totalUsers">0</h3>
+                            <p>Total Users</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-info">
+                            <h3 id="totalReviews">0</h3>
+                            <p>Total Reviews</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-info">
+                            <h3 id="recentBusinesses">0</h3>
+                            <p>This Week</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pending Approvals Section -->
+            <section id="pendingSection" class="section">
+                <div id="pendingList" class="business-grid"></div>
+            </section>
+
+            <!-- All Businesses Section -->
+            <section id="businessesSection" class="section">
+                <div id="businessList" class="business-grid"></div>
+            </section>
+
+            <!-- Users Section -->
+            <section id="usersSection" class="section">
+                <div id="usersList" class="table-container"></div>
+            </section>
+
+            <!-- Heatmap Section -->
+            <section id="heatmapSection" class="section">
+                <div id="heatmap" class="map-full"></div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analyticsSection" class="section">
+                <div class="analytics-container">
+                    <div class="chart-card">
+                        <h3>Category Distribution</h3>
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

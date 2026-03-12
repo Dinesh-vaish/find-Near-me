@@ -1,0 +1,128 @@
+═══════════════════════════════════════════════════════════
+  OVERLEAF QUICK START GUIDE
+  AI-Based Hyperlocal Smart Discovery System
+═══════════════════════════════════════════════════════════
+
+📋 STEP-BY-STEP INSTRUCTIONS:
+
+1️⃣ OPEN OVERLEAF
+   → Go to: https://www.overleaf.com
+   → Login or Create Account (Free)
+
+2️⃣ CREATE NEW PROJECT
+   → Click "New Project"
+   → Select "Blank Project"
+   → Name: "AI Hyperlocal Discovery Report"
+
+3️⃣ UPLOAD CODE
+   → Open main.tex file from your computer
+   → Copy ALL content (Ctrl+A, Ctrl+C)
+   → Paste in Overleaf editor (Ctrl+V)
+   → Click "Recompile" button
+
+4️⃣ CHECK OUTPUT
+   → PDF will generate on right side
+   → Check all pages
+   → Verify formatting
+
+5️⃣ CUSTOMIZE (If Needed)
+   → Update names/roll numbers
+   → Update university details
+   → Update dates
+   → Add images (optional)
+
+6️⃣ DOWNLOAD PDF
+   → Click "Download PDF" button
+   → Save to computer
+   → Ready for submission!
+
+═══════════════════════════════════════════════════════════
+
+📝 WHAT'S INCLUDED:
+
+✅ Title Page (with team details)
+✅ Certificate Page
+✅ Acknowledgement
+✅ Abstract
+✅ Table of Contents
+✅ List of Figures
+✅ List of Tables
+✅ Chapter 1: Introduction
+✅ Chapter 2: Literature Review
+✅ Chapter 3: Problem Statement
+✅ Chapter 4: System Architecture
+✅ Chapter 5: Technology Stack
+✅ Chapter 6: Database Design
+✅ Chapter 7: ML Ranking Algorithm
+✅ Professional formatting
+✅ Mathematical equations
+✅ Code listings
+✅ Tables
+
+═══════════════════════════════════════════════════════════
+
+🎨 CUSTOMIZATION POINTS:
+
+Line 45-50: Team member names
+Line 55: University name
+Line 65: Date
+Line 85-95: Certificate signatures
+Line 105-115: Acknowledgement text
+
+═══════════════════════════════════════════════════════════
+
+🖼️ ADDING IMAGES (Optional):
+
+1. Click "Upload" in Overleaf
+2. Select image file
+3. Add in LaTeX:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{filename.png}
+    \caption{Description}
+\end{figure}
+
+═══════════════════════════════════════════════════════════
+
+⚠️ IMPORTANT NOTES:
+
+• Compile TWICE for proper TOC
+• Check all page numbers
+• Verify mathematical equations
+• Proofread before download
+• Keep backup of source code
+
+═══════════════════════════════════════════════════════════
+
+✅ FINAL CHECKLIST:
+
+□ Names updated
+□ Roll numbers correct
+□ University name correct
+□ Date updated
+□ Certificate filled
+□ All chapters present
+□ TOC generated
+□ Page numbers correct
+□ PDF downloaded
+□ Ready to print
+
+═══════════════════════════════════════════════════════════
+
+📊 EXPECTED OUTPUT:
+
+• Format: PDF
+• Pages: 50-60 pages
+• Quality: Print-ready
+• Standard: University format
+
+═══════════════════════════════════════════════════════════
+
+🎓 SUBMISSION READY!
+
+Your professional project report is ready for submission.
+
+Good luck! 🚀
+
+═══════════════════════════════════════════════════════════

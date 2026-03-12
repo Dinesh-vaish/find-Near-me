@@ -1,0 +1,1846 @@
+\documentclass[12pt,a4paper]{report}
+
+\usepackage[a4paper,left=1.5in,right=1in,top=1in,bottom=1in]{geometry}
+
+\usepackage{graphicx}
+
+\usepackage{titlesec}
+
+\usepackage{fancyhdr}
+
+\usepackage{setspace}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+    citecolor=black,
+    pdfborder={0 0 0},
+    hidelinks
+}
+
+\usepackage{longtable}
+
+\usepackage{amsmath}
+
+\usepackage{lipsum}
+
+\onehalfspacing
+
+% -------- PAGE STYLE --------
+
+\pagestyle{fancy}
+
+\fancyhf{}
+
+\rfoot{Page \thepage}
+
+\renewcommand{\headrulewidth}{0pt}
+
+\begin{document}
+
+% ---------------- TITLE PAGE ----------------
+
+\begin{titlepage}
+
+\centering
+
+\vspace*{1cm}
+
+{\Huge \textbf{AI-Based Hyperlocal Smart Discovery System}}
+
+\vspace{1.5cm}
+
+\textbf{A Major Project Report Submitted To}
+
+\vspace{0.5cm}
+
+\textbf{SAGE UNIVERSITY, INDORE}
+
+\vspace{1cm}
+
+Towards Partial Fulfillment for the Award of\\
+
+\textbf{Bachelor of Technology}\\
+
+in\\
+
+\textbf{Computer Science \& Engineering}
+
+\vspace{1cm}
+
+\textbf{Submitted By}
+
+\vspace{0.5cm}
+
+Dinesh Kumar Bais (0043)\\
+
+Kapilesh Dhakad (0065)\\
+
+Lokesh Fuleriya (0070)\\
+
+Rishabh Khatarkar (0099)
+
+\vfill
+
+Institute of Advance Computing Core\\
+
+SAGE University\\
+
+Indore, Madhya Pradesh\\
+
+January – 2026
+
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\section*{Project Team and Contributions}
+
+This project, titled \textbf{AI-Based Hyperlocal Smart Discovery System}, was conceptualized, developed, and implemented by a highly motivated and skilled team. The team members brought together a combination of software engineering, data science, machine learning, and cloud deployment expertise to deliver a production-ready solution.
+
+\begin{itemize}
+
+    \item \textbf{Dinesh Kumar Bais} \\
+
+    Role: Backend \& Machine Learning Engineer \\
+
+    Contributions: Designed and implemented FastAPI backend, RESTful APIs, JWT authentication, ML-based smart ranking system, and real-time WebSocket infrastructure.
+
+    \item \textbf{Kapilesh Dhakad} \\
+
+    Role: Frontend \& UI/UX Developer \\
+
+    Contributions: Developed interactive HTML and React-based user interfaces, integrated geospatial maps, ensured responsive design, and implemented user-friendly dashboards.
+
+    \item \textbf{Lokesh Fuleriya} \\
+
+    Role: Database \& Cloud Deployment Specialist \\
+
+    Contributions: Designed MongoDB Atlas collections with geospatial indexing, optimized database queries, ensured scalable cloud deployment, and integrated real-time analytics.
+
+    \item \textbf{Rishabh Khatarkar} \\
+
+    Role: Admin Panel \& Analytics Engineer \\
+
+    Contributions: Developed admin dashboards, implemented approval workflows, analytics charts, heatmaps, user tracking, and overall system monitoring for operational efficiency.
+
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Team Philosophy:} 
+
+The team followed an agile and collaborative workflow, combining theoretical knowledge from coursework with industry-standard practices. Each member contributed to both the conceptual and technical aspects, ensuring that the final system is not only academically rigorous but also industry-ready. 
+
+This project represents the collective effort, innovation, and technical skill of the team in delivering a full-stack SaaS platform with AI-driven hyperlocal discovery capabilities.
+
+% ---------------- CHAPTER 1 ----------------
+
+\chapter{Project Story and Idea Origin}
+
+Every project begins with a problem that feels personal. The idea of the AI-Based Hyperlocal Smart Discovery System did not originate from a classroom assignment; it started from daily life frustrations.
+
+While searching for nearby services such as restaurants, repair shops, medical stores, or printing centers, we repeatedly noticed something unusual. The businesses appearing at the top of search results were not always the closest, the most reliable, or the highest rated. Instead, promoted listings dominated visibility. This created a gap between what users actually need and what platforms display.
+
+This observation triggered a simple but powerful question:
+
+\textit{Can local discovery be made smarter, fairer, and more user-driven?}
+
+As students of Computer Science and Engineering, we were learning about Artificial Intelligence, Machine Learning, Databases, and Real-Time Systems. We realized that these technologies are powerful enough to redesign how hyperlocal discovery works.
+
+Instead of static ranking, we envisioned a system where:
+
+\begin{itemize}
+
+\item Businesses are ranked dynamically.
+
+\item User behavior influences visibility.
+
+\item Distance genuinely matters.
+
+\item Engagement determines credibility.
+
+\item Results update in real time.
+
+\end{itemize}
+
+During team discussions, we analyzed how modern SaaS platforms operate. We studied how recommendation systems work, how engagement metrics are calculated, and how real-time communication improves user experience. This research shaped the foundation of our idea.
+
+The turning point came when we decided not to build a simple CRUD-based local listing app. Instead, we aimed to design a production-level, scalable system that integrates:
+
+\begin{itemize}
+
+\item Geospatial indexing for accurate nearby search
+
+\item Machine Learning-based ranking
+
+\item WebSocket-based real-time updates
+
+\item Behavior tracking and analytics
+
+\item Admin-level moderation and heatmap insights
+
+\end{itemize}
+
+Another strong motivation behind this project was skill integration. We wanted to create something that reflects our complete technical learning — backend engineering, frontend development, database optimization, and AI-based logic — all combined into one cohesive system.
+
+Rather than treating this as just a submission requirement, we treated it as a startup-level prototype. The architecture was intentionally designed to be scalable, secure, and cloud-ready.
+
+The core philosophy behind the system is fairness through intelligence. Visibility should not be controlled only by advertisement budgets. Instead, ranking should be influenced by:
+
+\begin{itemize}
+
+\item Proximity to the user
+
+\item Real customer reviews
+
+\item Click-through behavior
+
+\item User engagement patterns
+
+\item Recent business activity
+
+\end{itemize}
+
+By combining these factors into a weighted ranking model, the system becomes adaptive. It learns from user interactions and improves over time.
+
+Thus, the AI-Based Hyperlocal Smart Discovery System was born from a real-world inconvenience, strengthened by academic knowledge, and implemented with an industry-oriented mindset.
+
+This project represents our transition from learning concepts to applying them in a real, scalable, and intelligent software solution.
+
+% ---------------- CHAPTER 2 ----------------
+
+\chapter{Problem Statement}
+
+\section{Problem Description}
+
+With the rapid growth of digital platforms, local business discovery applications have become essential tools for users to find nearby services such as restaurants, pharmacies, repair centers, and service providers. However, despite technological advancements, most existing hyperlocal search platforms suffer from significant limitations in ranking intelligence, personalization, and real-time responsiveness.
+
+In traditional systems, businesses are typically ranked based on static parameters such as paid promotions, basic ratings, or predefined sorting rules. These methods do not consider dynamic factors like user interaction, engagement levels, recent activity, or contextual relevance.
+
+As a result:
+
+\begin{itemize}
+
+\item Users often receive results that are not optimally sorted by proximity.
+
+\item High advertisement spending can dominate visibility.
+
+\item User engagement data is ignored in ranking.
+
+\item Results remain static even when user behavior changes.
+
+\item Updates such as new reviews or new businesses are not reflected instantly.
+
+\end{itemize}
+
+This creates a gap between user expectations and system performance.
+
+\section{Formal Problem Statement}
+
+Existing hyperlocal business discovery systems lack dynamic, behavior-driven ranking mechanisms, real-time data synchronization, and intelligent geospatial filtering, resulting in suboptimal search relevance and reduced user satisfaction.
+
+\section{Scope of the Problem}
+
+The problem exists at multiple technical levels:
+
+\begin{itemize}
+
+\item \textbf{Algorithmic Level:} Absence of machine learning-based adaptive ranking.
+
+\item \textbf{Data Level:} Underutilization of behavioral and engagement data.
+
+\item \textbf{System Level:} Lack of real-time communication architecture.
+
+\item \textbf{Business Level:} Advertisement-driven visibility imbalance.
+
+\end{itemize}
+
+\section{Need for Solution}
+
+There is a clear need for an intelligent, scalable, and real-time system that:
+
+\begin{itemize}
+
+\item Uses weighted multi-factor ranking.
+
+\item Incorporates user interaction tracking.
+
+\item Implements geospatial indexing for accurate nearby search.
+
+\item Supports WebSocket-based live updates.
+
+\item Provides analytics and performance insights.
+
+\end{itemize}
+
+The AI-Based Hyperlocal Smart Discovery System is proposed to address these challenges by integrating Artificial Intelligence, geospatial databases, and real-time system design into a unified SaaS architecture.
+
+% ---------------- CHAPTER 3 ----------------
+
+\chapter{Objectives}
+
+\section{Primary Objective}
+
+The primary objective of this project is to design and develop an AI-Based Hyperlocal Smart Discovery System that enhances local business search relevance through intelligent ranking, geospatial optimization, and real-time data processing within a scalable SaaS architecture.
+
+\section{Secondary Objectives}
+
+To achieve the primary objective, the following specific objectives are defined:
+
+\begin{itemize}
+
+\item To develop a scalable and modular Software-as-a-Service (SaaS) architecture capable of handling concurrent users and dynamic data updates.
+
+\item To implement a Machine Learning-based weighted ranking algorithm that dynamically scores businesses based on multiple parameters including distance, rating, engagement, and activity level.
+
+\item To integrate MongoDB 2dsphere geospatial indexing for efficient radius-based search and proximity filtering.
+
+\item To design a real-time communication mechanism using WebSocket technology to ensure instant updates without requiring page reload.
+
+\item Implement user behavior tracking mechanisms to collect engagement data such as views, clicks, calls, and navigation interactions.
+
+\item To compute performance indicators such as engagement score and click-through rate (CTR) for ranking optimization.
+
+\item To design and implement a secure authentication and authorization system using JWT tokens.
+
+\item To develop an Admin Dashboard with analytical insights for monitoring business performance, approvals, and system metrics.
+
+\item To ensure optimized API response time through asynchronous request handling and indexed database queries.
+
+\item To maintain system security, scalability, and maintainability following industry-standard backend design principles.
+
+\end{itemize}
+
+\section{Performance Objectives}
+
+The system aims to achieve the following measurable performance goals:
+
+\begin{itemize}
+
+\item Minimize search latency through optimized geospatial queries.
+
+\item Improve ranking relevance using multi-factor weighted scoring.
+
+\item Ensure real-time synchronization of data across users.
+
+\item Maintain high availability and system responsiveness under load.
+
+\end{itemize}
+
+\section{Long-Term Objective}
+
+The long-term objective of this project is to establish a production-ready hyperlocal discovery platform that can be extended with advanced AI personalization, subscription-based monetization, and mobile application support.
+
+\end{itemize}
+
+% ---------------- CHAPTER 4 ----------------
+
+\chapter{System Architecture}
+
+The AI-Based Hyperlocal Smart Discovery System follows a structured three-layer architecture designed to ensure scalability, modularity, performance optimization, and real-time communication support. The architecture separates presentation, application logic, and data management to maintain clean system organization and ease of deployment.
+
+\section{Architectural Overview}
+
+The system is divided into three primary layers:
+
+\begin{itemize}
+
+\item Presentation Layer (Frontend)
+
+\item Application Layer (Backend)
+
+\item Data Layer (Database)
+
+\end{itemize}
+
+This separation enables independent development, testing, scaling, and maintenance of each layer.
+
+\section{1. Presentation Layer (Frontend)}
+
+The Presentation Layer is developed using ReactJS and provides an interactive, responsive, and user-friendly interface for both users and administrators.
+
+\subsection*{User Interface Components}
+
+\begin{itemize}
+
+\item Nearby business search with radius selection (200m--2km)
+
+\item GPS-based automatic location detection
+
+\item Category filtering (Coaching, Kirana, Plumber, Salon, etc.)
+
+\item Interactive OpenStreetMap integration
+
+\item Business markers with click-to-view details
+
+\item Distance display in meters
+
+\item Business details page (rating, timings, phone number, smart score)
+
+\item Add Business form with GPS auto-detection
+
+\item User registration and login interface
+
+\end{itemize}
+
+\subsection*{Admin Interface Components}
+
+\begin{itemize}
+
+\item Real-time dashboard with business statistics
+
+\item Pending approval management (Approve/Reject)
+
+\item User management table
+
+\item Business heatmap visualization
+
+\item Category-based analytics charts
+
+\item Live notification system
+
+\end{itemize}
+
+The frontend communicates with the backend using REST APIs and WebSocket connections for real-time updates.
+
+\section{2. Application Layer (Backend)}
+
+The Application Layer is built using FastAPI (Python), which provides high-performance asynchronous request handling and automatic API documentation via Swagger.
+
+\subsection*{Core Backend Modules}
+
+\begin{itemize}
+
+\item Authentication Module (JWT-based secure login)
+
+\item Business Management Module
+
+\item Search and Geospatial Query Module
+
+\item Machine Learning Ranking Module
+
+\item Interaction Tracking Module
+
+\item Admin Management Module
+
+\item WebSocket Real-Time Communication Module
+
+\end{itemize}
+
+\subsection*{API Design}
+
+The backend implements more than 25 RESTful API endpoints categorized into:
+
+\begin{itemize}
+
+\item Authentication APIs
+
+\item Business APIs
+
+\item Search APIs
+
+\item Admin APIs
+
+\item Interaction Tracking APIs
+
+\item WebSocket Endpoints
+
+\end{itemize}
+
+FastAPI ensures:
+
+\begin{itemize}
+
+\item Asynchronous processing
+
+\item Automatic validation
+
+\item Structured error handling
+
+\item High-speed performance
+
+\end{itemize}
+
+\section{Machine Learning Integration}
+
+The ranking system operates within the backend layer and calculates a Smart Score using a five-factor weighted algorithm:
+
+\begin{itemize}
+
+\item Distance (30\%)
+
+\item Recent Activity (15\%)
+
+\item Review Score (20\%)
+
+\item Click Rate (20\%)
+
+\item Engagement Score (15\%)
+
+\end{itemize}
+
+This dynamic scoring ensures that search results are relevance-based rather than advertisement-driven.
+
+\section{3. Data Layer (Database)}
+
+The Data Layer is implemented using MongoDB Atlas Cloud Database, providing scalable and cloud-ready storage.
+
+\subsection*{Database Features}
+
+\begin{itemize}
+
+\item 2dsphere Geospatial Indexing for fast radius-based queries
+
+\item Indexed collections for optimized performance
+
+\item Cloud-based scalability
+
+\item Real-time data updates support
+
+\end{itemize}
+
+\subsection*{Core Collections}
+
+\begin{itemize}
+
+\item Users
+
+\item Businesses
+
+\item Reviews
+
+\item Interactions (for ML tracking)
+
+\item Search History
+
+\end{itemize}
+
+\section{Real-Time Architecture}
+
+The system incorporates WebSocket communication for:
+
+\begin{itemize}
+
+\item Admin real-time business approval alerts
+
+\item User approval notifications
+
+\item Live dashboard statistics update
+
+\item Heatmap auto-refresh
+
+\item Auto-reconnection and heartbeat mechanism
+
+\end{itemize}
+
+\section{Architectural Benefits}
+
+The three-layer architecture ensures:
+
+\begin{itemize}
+
+\item Scalability through stateless API design
+
+\item Modular development and easy maintenance
+
+\item Secure authentication and role-based access control
+
+\item Optimized geospatial search performance
+
+\item Real-time synchronization without page reload
+
+\item Cloud-ready deployment capability
+
+\end{itemize}
+
+Thus, the proposed architecture supports high performance, intelligent ranking, real-time updates, and scalable SaaS deployment suitable for real-world implementation.
+
+% ---------------- CHAPTER 5 ----------------
+
+\chapter{Technology Stack}
+
+The AI-Based Hyperlocal Smart Discovery System is developed using a modern, scalable, and performance-oriented technology stack. Each technology has been carefully selected to support geospatial search, real-time updates, intelligent ranking, security, and cloud scalability.
+
+\section{Backend Framework: FastAPI}
+
+FastAPI is a high-performance Python-based web framework used for building RESTful APIs. It is designed for speed, automatic validation, and asynchronous request handling.
+
+\subsection*{Role in the System}
+
+\begin{itemize}
+
+\item Development of 25+ REST API endpoints
+
+\item Implementation of authentication and authorization
+
+\item Handling geospatial search queries
+
+\item Integration of machine learning ranking logic
+
+\item Processing user interaction tracking
+
+\item Managing admin operations
+
+\item Providing WebSocket endpoints for real-time communication
+
+\end{itemize}
+
+\subsection*{Key Advantages}
+
+\begin{itemize}
+
+\item Asynchronous architecture for high performance
+
+\item Automatic API documentation using Swagger
+
+\item Built-in data validation using Pydantic
+
+\item Clean and modular code structure
+
+\item Suitable for scalable SaaS deployment
+
+\end{itemize}
+
+FastAPI ensures low latency, structured API design, and production-ready backend performance.
+
+\section{Database: MongoDB Atlas}
+
+MongoDB Atlas is a cloud-based NoSQL database platform that provides flexible schema design and horizontal scalability.
+
+\subsection*{Role in the System}
+
+\begin{itemize}
+
+\item Storage of user data
+
+\item Storage of business listings
+
+\item Storage of reviews and ratings
+
+\item Storage of interaction tracking data (views, clicks, calls)
+
+\item Storage of search history data
+
+\end{itemize}
+
+\subsection*{Geospatial Capabilities}
+
+\begin{itemize}
+
+\item 2dsphere indexing for radius-based queries
+
+\item Fast nearby search (200m--2km range)
+
+\item Distance calculation in meters
+
+\item Efficient location-based filtering
+
+\end{itemize}
+
+\subsection*{Why MongoDB Atlas?}
+
+\begin{itemize}
+
+\item Cloud-hosted and scalable
+
+\item Flexible document-based schema
+
+\item Optimized geospatial queries
+
+\item High availability and data reliability
+
+\end{itemize}
+
+MongoDB Atlas enables efficient handling of location-based data and large-scale interaction tracking.
+
+\section{Frontend Framework: ReactJS}
+
+ReactJS is a modern JavaScript library used to build interactive and responsive user interfaces.
+
+\subsection*{Role in the System}
+
+\begin{itemize}
+
+\item User search interface
+
+\item Interactive OpenStreetMap integration
+
+\item Business listing and detail pages
+
+\item Add Business form
+
+\item Login and registration pages
+
+\item Admin dashboard
+
+\item Analytics charts and heatmap visualization
+
+\end{itemize}
+
+\subsection*{Key Features}
+
+\begin{itemize}
+
+\item Component-based architecture
+
+\item Real-time UI updates
+
+\item Responsive design (mobile, tablet, desktop)
+
+\item Smooth transitions and animations
+
+\item Efficient state management
+
+\end{itemize}
+
+ReactJS ensures a modern, responsive, and user-friendly experience.
+
+\section{Real-Time Communication: WebSocket}
+
+WebSocket is used to enable real-time, bidirectional communication between the client and server.
+
+\subsection*{Role in the System}
+
+\begin{itemize}
+
+\item Admin real-time approval alerts
+
+\item User approval notifications
+
+\item Live dashboard updates
+
+\item Heatmap refresh without page reload
+
+\item Instant status updates
+
+\end{itemize}
+
+\subsection*{Technical Capabilities}
+
+\begin{itemize}
+
+\item Persistent connection between client and server
+
+\item Auto-reconnection mechanism
+
+\item Heartbeat monitoring
+
+\item Efficient multi-user connection handling
+
+\end{itemize}
+
+WebSocket eliminates the need for repeated polling requests and ensures live synchronization of data across users.
+
+\section{Security Technologies}
+
+\subsection*{JWT Authentication}
+
+\begin{itemize}
+
+\item Secure login system
+
+\item Role-based access control (User, Business Owner, Admin)
+
+\item Protected routes
+
+\item Token expiration management
+
+\end{itemize}
+
+\subsection*{Password Hashing}
+
+\begin{itemize}
+
+\item Encrypted password storage
+
+\item Secure credential handling
+
+\end{itemize}
+
+\section{Supporting Technologies}
+
+\begin{itemize}
+
+\item OpenStreetMap for interactive mapping
+
+\item Swagger UI for API documentation
+
+\item CORS middleware for cross-origin communication
+
+\item Cloud-based MongoDB Atlas deployment
+
+\end{itemize}
+
+\section{Technology Stack Summary}
+
+The selected technology stack ensures:
+
+\begin{itemize}
+
+\item High performance and low latency
+
+\item Intelligent ranking and geospatial optimization
+
+\item Real-time system updates
+
+\item Secure authentication and role management
+
+\item Scalable SaaS architecture
+
+\item Cloud-ready deployment capability
+
+\end{itemize}
+
+Thus, the combination of FastAPI, MongoDB Atlas, ReactJS, and WebSocket creates a powerful, scalable, and intelligent hyperlocal discovery platform.
+
+% ---------------- CHAPTER 6 ----------------
+
+\chapter{Database Design}
+
+The database architecture of the AI-Based Hyperlocal Smart Discovery System is designed to support scalable data storage, geospatial querying, real-time interaction tracking, and machine learning-driven ranking computation. 
+
+MongoDB Atlas, a cloud-based NoSQL database platform, is selected due to its flexible document-oriented schema, horizontal scalability, and native geospatial indexing capabilities.
+
+\section{Design Principles}
+
+The database design follows the below principles:
+
+\begin{itemize}
+
+\item High-performance geospatial querying using 2dsphere indexing
+
+\item Separation of concerns through modular collections
+
+\item Efficient indexing strategy for low-latency responses
+
+\item Scalable storage for interaction and analytics data
+
+\item Support for machine learning feature computation
+
+\end{itemize}
+
+\section{6.1 Collections Used}
+
+The system consists of five core collections:
+
+\begin{itemize}
+
+\item Users
+
+\item Businesses
+
+\item Reviews
+
+\item Interactions
+
+\item Search History
+
+\end{itemize}
+
+\section{Users Collection}
+
+The Users collection stores authentication credentials, profile data, and role-based access control information.
+
+\subsection*{Core Attributes}
+
+\begin{itemize}
+
+\item \texttt{\_id} (Primary Identifier)
+
+\item Name
+
+\item Email (Unique Indexed)
+
+\item Phone Number
+
+\item Hashed Password
+
+\item Role (User / Business Owner / Admin)
+
+\item Account Status
+
+\item Registration Timestamp
+
+\end{itemize}
+
+\subsection*{Functional Role}
+
+\begin{itemize}
+
+\item JWT-based authentication
+
+\item Role-based authorization control
+
+\item Administrative user management
+
+\end{itemize}
+
+\section{Businesses Collection}
+
+The Businesses collection represents the central entity of the system and stores all local business listings.
+
+\subsection*{Core Attributes}
+
+\begin{itemize}
+
+\item \texttt{\_id}
+
+\item Business Name
+
+\item Category
+
+\item Address
+
+\item GeoJSON Location (Latitude, Longitude)
+
+\item Contact Information
+
+\item Operating Timings
+
+\item Average Rating
+
+\item Smart Score (Computed ML Score)
+
+\item Status (Pending / Approved / Rejected)
+
+\item Created Timestamp
+
+\end{itemize}
+
+\subsection*{Geospatial Indexing}
+
+A 2dsphere index is applied on the location field to enable:
+
+\begin{itemize}
+
+\item Efficient radius-based search (200m--2km)
+
+\item Distance-based sorting
+
+\item Accurate proximity filtering
+
+\end{itemize}
+
+\subsection*{Functional Role}
+
+\begin{itemize}
+
+\item Primary dataset for search and ranking
+
+\item Heatmap generation
+
+\item Admin approval workflow
+
+\item ML-based scoring integration
+
+\end{itemize}
+
+\section{Reviews Collection}
+
+The Reviews collection stores structured feedback and ratings submitted by users.
+
+\subsection*{Core Attributes}
+
+\begin{itemize}
+
+\item \texttt{\_id}
+
+\item User ID (Reference)
+
+\item Business ID (Reference)
+
+\item Rating (1--5)
+
+\item Review Content
+
+\item Timestamp
+
+\end{itemize}
+
+\subsection*{Functional Role}
+
+\begin{itemize}
+
+\item Review score contribution in ranking algorithm (20\%)
+
+\item Average rating computation
+
+\item Quality evaluation of businesses
+
+\end{itemize}
+
+\section{Interactions Collection}
+
+The Interactions collection captures behavioral signals required for intelligent ranking and analytics.
+
+\subsection*{Core Attributes}
+
+\begin{itemize}
+
+\item \texttt{\_id}
+
+\item User ID
+
+\item Business ID
+
+\item Interaction Type (View / Click / Call / Navigate)
+
+\item Timestamp
+
+\item Optional Location Metadata
+
+\end{itemize}
+
+\subsection*{Functional Role}
+
+\begin{itemize}
+
+\item Click-Through Rate (CTR) computation
+
+\item Engagement score calculation (15\%)
+
+\item Click rate contribution (20\%)
+
+\item Recent activity factor (15\%)
+
+\item Business performance analytics
+
+\end{itemize}
+
+This collection forms the backbone of the self-improving ranking system.
+
+\section{Search History Collection}
+
+The Search History collection records user search patterns for analytical and optimization purposes.
+
+\subsection*{Core Attributes}
+
+\begin{itemize}
+
+\item \texttt{\_id}
+
+\item User ID
+
+\item Search Keyword
+
+\item Selected Category
+
+\item Selected Radius
+
+\item Search Location
+
+\item Timestamp
+
+\end{itemize}
+
+\subsection*{Functional Role}
+
+\begin{itemize}
+
+\item Search analytics
+
+\item Popular category detection
+
+\item User preference analysis
+
+\item Location-based trend analysis
+
+\end{itemize}
+
+\section{Indexing Strategy}
+
+To ensure optimized performance and low query latency, the following indexes are implemented:
+
+\begin{itemize}
+
+\item 2dsphere index on business location
+
+\item Unique index on user email
+
+\item Index on business status
+
+\item Index on interaction business ID
+
+\item Index on search timestamp
+
+\end{itemize}
+
+\section{Database Design Advantages}
+
+The proposed database structure provides:
+
+\begin{itemize}
+
+\item High-speed geospatial search
+
+\item Efficient ranking factor computation
+
+\item Scalable interaction tracking
+
+\item Real-time analytics capability
+
+\item Modular and maintainable data organization
+
+\end{itemize}
+
+The database architecture therefore ensures performance, scalability, and seamless integration with machine learning and real-time communication modules.
+
+% ---------------- CHAPTER 7 ----------------
+
+\chapter{Machine Learning Ranking Algorithm}
+
+The AI-Based Hyperlocal Smart Discovery System implements a weighted multi-factor ranking algorithm to dynamically order businesses based on relevance, quality, engagement, and proximity.
+
+Unlike traditional static ranking mechanisms, this model continuously adapts using behavioral interaction data, ensuring that highly relevant and actively engaged businesses appear at the top of search results.
+
+\section{Mathematical Formulation}
+
+The Smart Ranking Score is computed as:
+
+\[
+
+Score = (0.30 \times D_n) + (0.20 \times R_n) + (0.20 \times C_n) + (0.15 \times E_n) + (0.15 \times A_n)
+
+\]
+
+Where:
+
+\begin{itemize}
+
+\item $D_n$ = Normalized Distance Score
+
+\item $R_n$ = Normalized Review Score
+
+\item $C_n$ = Click-Through Rate (CTR)
+
+\item $E_n$ = Engagement Score
+
+\item $A_n$ = Recent Activity Score
+
+\end{itemize}
+
+All factors are normalized between 0 and 1 to maintain consistency and prevent scale imbalance.
+
+\section{Ranking Factors}
+
+\subsection{1. Distance Factor (30\%)}
+
+Distance is calculated using MongoDB 2dsphere geospatial queries.
+
+\begin{itemize}
+
+\item Businesses closer to the user receive higher scores.
+
+\item Distance is inversely normalized within the selected radius (200m--2km).
+
+\item Ensures proximity-based prioritization.
+
+\end{itemize}
+
+\subsection{2. Review Score (20\%)}
+
+Review Score is derived from:
+
+\begin{itemize}
+
+\item Average star rating (1--5 scale)
+
+\item Total review count (weighted influence)
+
+\end{itemize}
+
+This ensures businesses with higher customer satisfaction are ranked higher.
+
+\subsection{3. Click-Through Rate (CTR) (20\%)}
+
+CTR is calculated as:
+
+\[
+
+CTR = \frac{\text{Total Clicks}}{\text{Total Views}}
+
+\]
+
+\begin{itemize}
+
+\item Reflects user interest
+
+\item Indicates listing attractiveness
+
+\item Penalizes businesses with low interaction despite high visibility
+
+\end{itemize}
+
+\subsection{4. Engagement Score (15\%)}
+
+Engagement is computed using weighted interaction signals:
+
+\begin{itemize}
+
+\item Clicks
+
+\item Calls
+
+\item Navigation requests
+
+\item Profile views
+
+\end{itemize}
+
+Each interaction type contributes differently to the engagement score, allowing the system to prioritize businesses with active user interest.
+
+\subsection{5. Recent Activity (15\%)}
+
+Recent Activity measures business activity in recent time windows:
+
+\begin{itemize}
+
+\item New reviews
+
+\item Recent interactions
+
+\item Updated information
+
+\end{itemize}
+
+This factor ensures that active and currently relevant businesses are promoted over inactive listings.
+
+\section{Normalization Strategy}
+
+To ensure fairness across varying scales:
+
+\begin{itemize}
+
+\item Distance is normalized within the user-selected radius.
+
+\item Review score is scaled between 0 and 1.
+
+\item CTR is naturally bounded between 0 and 1.
+
+\item Engagement and activity scores are normalized using min-max scaling.
+
+\end{itemize}
+
+This prevents dominance of any single factor due to magnitude differences.
+
+\section{Algorithm Workflow}
+
+\begin{enumerate}
+
+\item User performs a nearby search.
+
+\item System retrieves businesses within selected radius.
+
+\item Interaction and review data are aggregated.
+
+\item Each ranking factor is normalized.
+
+\item Weighted score is computed.
+
+\item Businesses are sorted in descending order of Smart Score.
+
+\item Results are returned to frontend.
+
+\end{enumerate}
+
+\section{Self-Improving Mechanism}
+
+The ranking system continuously updates because:
+
+\begin{itemize}
+
+\item Every view, click, call, or navigation is recorded.
+
+\item CTR and engagement metrics change dynamically.
+
+\item Recent activity factor adapts based on latest interactions.
+
+\end{itemize}
+
+This creates a feedback loop where user behavior directly influences ranking outcomes.
+
+\section{Advantages of the Proposed Model}
+
+\begin{itemize}
+
+\item Balanced proximity and quality ranking
+
+\item Behavior-driven dynamic ordering
+
+\item Reduced advertisement bias
+
+\item Real-time ranking updates
+
+\item Scalable and extendable architecture
+
+\end{itemize}
+
+Thus, the proposed Machine Learning Ranking Algorithm ensures intelligent, adaptive, and user-centric business discovery.
+
+\end{itemize}
+
+% ---------------- CHAPTER 8 ----------------
+
+\chapter{Development Process}
+
+The AI-Based Hyperlocal Smart Discovery System was developed using a structured and iterative Software Development Life Cycle (SDLC) approach. The development process ensured systematic planning, modular implementation, rigorous testing, and scalable deployment.
+
+\section{1. Requirement Analysis}
+
+The first phase involved identifying functional and non-functional requirements of the system.
+
+\subsection*{Functional Requirements}
+
+\begin{itemize}
+
+\item Nearby business search (200m--2km radius)
+
+\item GPS-based automatic location detection
+
+\item Category-based filtering
+
+\item Machine learning-based smart ranking
+
+\item User registration and authentication (JWT)
+
+\item Business addition with admin approval workflow
+
+\item Admin dashboard with analytics and heatmap
+
+\item Real-time notifications using WebSocket
+
+\item Interaction tracking (view, click, call, navigate)
+
+\end{itemize}
+
+\subsection*{Non-Functional Requirements}
+
+\begin{itemize}
+
+\item High performance and low latency
+
+\item Secure authentication and role-based access
+
+\item Scalable SaaS architecture
+
+\item Cloud database support
+
+\item Responsive UI design
+
+\item Real-time synchronization
+
+\end{itemize}
+
+This phase established a clear project scope aligned with user and administrative needs.
+
+\section{2. System Design}
+
+During the design phase, the overall system architecture and database structure were defined.
+
+\begin{itemize}
+
+\item Three-layer architecture (Presentation, Application, Data)
+
+\item Database schema design with five collections
+
+\item Geospatial indexing strategy
+
+\item RESTful API structure design
+
+\item Machine learning ranking formulation
+
+\item WebSocket real-time communication model
+
+\end{itemize}
+
+Architectural diagrams and module breakdown ensured modular development and maintainability.
+
+\section{3. Backend Development}
+
+The backend was developed using FastAPI (Python) with asynchronous support.
+
+\subsection*{Key Activities}
+
+\begin{itemize}
+
+\item Implementation of 25+ RESTful API endpoints
+
+\item JWT-based authentication system
+
+\item Role-based access control
+
+\item Geospatial search implementation using MongoDB 2dsphere index
+
+\item Machine learning ranking algorithm integration
+
+\item Interaction tracking module development
+
+\item Admin approval workflow
+
+\item WebSocket server implementation for real-time updates
+
+\end{itemize}
+
+Automatic API documentation was generated using Swagger for testing and validation.
+
+\section{4. Frontend Development}
+
+The frontend was developed using ReactJS with a component-based architecture.
+
+\subsection*{User-Side Development}
+
+\begin{itemize}
+
+\item Nearby search interface
+
+\item Radius selection and category filters
+
+\item OpenStreetMap integration
+
+\item Business listing and detail view
+
+\item Add Business form
+
+\item Login and registration pages
+
+\end{itemize}
+
+\subsection*{Admin-Side Development}
+
+\begin{itemize}
+
+\item Dashboard with business statistics
+
+\item Pending approval management
+
+\item User management module
+
+\item Analytics charts and category visualization
+
+\item Heatmap implementation
+
+\end{itemize}
+
+The UI was designed to be fully responsive across mobile, tablet, and desktop devices.
+
+\section{5. Testing Phase}
+
+The system underwent multiple levels of testing:
+
+\subsection*{API Testing}
+
+\begin{itemize}
+
+\item Endpoint validation using Postman
+
+\item JWT authentication testing
+
+\item Role-based access verification
+
+\item Error handling validation
+
+\end{itemize}
+
+\subsection*{Functional Testing}
+
+\begin{itemize}
+
+\item Nearby search accuracy testing
+
+\item Ranking score verification
+
+\item Interaction tracking validation
+
+\item Admin approval workflow testing
+
+\end{itemize}
+
+\subsection*{UI Testing}
+
+\begin{itemize}
+
+\item Browser compatibility testing
+
+\item Responsive design verification
+
+\item Real-time update validation
+
+\end{itemize}
+
+\section{6. Deployment}
+
+The final phase involved deploying the system in a cloud-ready environment.
+
+\begin{itemize}
+
+\item Backend deployed on cloud server
+
+\item MongoDB Atlas used as cloud database
+
+\item CORS configured for cross-origin communication
+
+\item Production configuration enabled
+
+\item WebSocket connection tested in live environment
+
+\end{itemize}
+
+The deployed system supports scalable expansion and real-world implementation.
+
+\section{Development Methodology}
+
+An iterative development approach was followed:
+
+\begin{enumerate}
+
+\item Core backend APIs implemented
+
+\item Basic frontend integration completed
+
+\item ML ranking integrated
+
+\item Interaction tracking enabled
+
+\item Real-time WebSocket added
+
+\item Admin analytics module finalized
+
+\end{enumerate}
+
+This incremental process ensured stable integration of all modules and reduced system-level conflicts.
+
+\section{Outcome of Development Process}
+
+The structured development lifecycle resulted in:
+
+\begin{itemize}
+
+\item Fully functional backend API
+
+\item Interactive user and admin interfaces
+
+\item Intelligent ranking mechanism
+
+\item Real-time communication system
+
+\item Cloud-ready scalable deployment
+
+\end{itemize}
+
+Thus, the systematic development approach ensured reliability, scalability, and performance of the hyperlocal smart discovery platform.
+
+% ---------------- CHAPTER 9 ----------------
+
+\chapter{Language Use and Justification}
+
+The AI-Based Hyperlocal Smart Discovery System is developed using a carefully selected set of programming languages and technologies. The selection was based on performance requirements, scalability, real-time capabilities, machine learning integration, and ease of cloud deployment.
+
+\section{Python (Backend Development)}
+
+Python is used as the primary backend programming language through the FastAPI framework.
+
+\subsection*{Justification}
+
+\begin{itemize}
+
+\item Strong support for machine learning and data processing
+
+\item Clean and readable syntax for rapid development
+
+\item Extensive ecosystem of libraries
+
+\item High compatibility with NoSQL databases
+
+\item Asynchronous support through FastAPI
+
+\end{itemize}
+
+\subsection*{Project Alignment}
+
+Python enables seamless implementation of:
+
+\begin{itemize}
+
+\item Smart ranking algorithm
+
+\item Interaction tracking logic
+
+\item Geospatial data processing
+
+\item Real-time WebSocket communication
+
+\end{itemize}
+
+Thus, Python ensures flexibility, maintainability, and intelligent system design.
+
+\section{JavaScript (Frontend Development)}
+
+JavaScript is used for frontend development through the ReactJS library.
+
+\subsection*{Justification}
+
+\begin{itemize}
+
+\item Industry-standard language for web interfaces
+
+\item Component-based UI architecture
+
+\item Efficient state management
+
+\item Strong community support
+
+\item Real-time UI update capability
+
+\end{itemize}
+
+\subsection*{Project Alignment}
+
+JavaScript enables:
+
+\begin{itemize}
+
+\item Interactive map integration
+
+\item Dynamic business listing updates
+
+\item Admin dashboard analytics
+
+\item Real-time notification rendering
+
+\item Responsive multi-device design
+
+\end{itemize}
+
+This ensures a modern and user-friendly experience.
+
+\section{MongoDB Query Language (MQL)}
+
+MongoDB Query Language is used for interacting with the MongoDB Atlas cloud database.
+
+\subsection*{Justification}
+
+\begin{itemize}
+
+\item Efficient handling of document-based data
+
+\item Built-in geospatial query support
+
+\item Flexible schema structure
+
+\item Optimized indexing capabilities
+
+\end{itemize}
+
+\subsection*{Project Alignment}
+
+MQL supports:
+
+\begin{itemize}
+
+\item 2dsphere geospatial indexing
+
+\item Radius-based location filtering
+
+\item Aggregation pipelines for analytics
+
+\item Efficient interaction data retrieval
+
+\end{itemize}
+
+This makes it ideal for location-based systems.
+
+\section{HTML and CSS (UI Structure and Styling)}
+
+HTML and CSS are used to structure and style the frontend interface.
+
+\subsection*{Justification}
+
+\begin{itemize}
+
+\item Standard web technologies
+
+\item Responsive design compatibility
+
+\item Cross-browser support
+
+\item Lightweight and efficient rendering
+
+\end{itemize}
+
+\subsection*{Project Alignment}
+
+These technologies enable:
+
+\begin{itemize}
+
+\item Structured layout of search interface
+
+\item Professional admin dashboard design
+
+\item Clean visualization of charts and heatmaps
+
+\item Mobile and tablet responsiveness
+
+\end{itemize}
+
+\section{WebSocket Protocol}
+
+The WebSocket protocol is implemented for real-time bidirectional communication.
+
+\subsection*{Justification}
+
+\begin{itemize}
+
+\item Persistent connection between client and server
+
+\item Eliminates repeated polling
+
+\item Low-latency data transfer
+
+\item Efficient multi-user synchronization
+
+\end{itemize}
+
+\subsection*{Project Alignment}
+
+WebSocket enables:
+
+\begin{itemize}
+
+\item Real-time admin approval notifications
+
+\item Live dashboard updates
+
+\item Instant status refresh
+
+\item Heatmap auto-update
+
+\end{itemize}
+
+This ensures real-time system responsiveness.
+
+\section{Overall Technology Justification}
+
+The combined use of Python, JavaScript, MongoDB, and WebSocket ensures:
+
+\begin{itemize}
+
+\item High-performance API processing
+
+\item Intelligent ranking computation
+
+\item Fast geospatial search
+
+\item Real-time updates
+
+\item Scalable SaaS deployment
+
+\item Cloud-ready architecture
+
+\end{itemize}
+
+The selected languages and technologies complement each other, creating a robust, scalable, and intelligent hyperlocal business discovery system.
+
+% ---------------- CHAPTER 10 ----------------
+
+\chapter{Expected Outcomes}
+
+The AI-Based Hyperlocal Smart Discovery System is expected to demonstrate measurable improvements in search relevance, real-time responsiveness, user engagement, and administrative efficiency. The anticipated outcomes are categorized into system-level, technical, analytical, and strategic impacts.
+
+\section{ System-Level Outcomes}
+
+\begin{itemize}
+
+\item Implementation of an intelligent hyperlocal discovery platform capable of accurate radius-based search (200m--2km).
+
+\item Deployment of a multi-factor machine learning ranking mechanism that dynamically prioritizes businesses based on proximity, quality, and engagement metrics.
+
+\item Integration of real-time communication enabling instant administrative and user notifications.
+
+\item Establishment of a secure, role-based authentication framework ensuring controlled access and data protection.
+
+\end{itemize}
+
+\section{ Technical Outcomes}
+
+\begin{itemize}
+
+\item Successful development of a scalable three-layer architecture (Presentation, Application, Data).
+
+\item Implementation of 25+ RESTful API endpoints with asynchronous request handling.
+
+\item Optimized geospatial query execution using MongoDB 2dsphere indexing.
+
+\item Low-latency system response through indexed queries and efficient backend processing.
+
+\item Cloud-ready deployment using MongoDB Atlas and modular backend design.
+
+\end{itemize}
+
+\section{ Machine Learning and Analytical Outcomes}
+
+\begin{itemize}
+
+\item Dynamic computation of ranking scores using five weighted factors: Distance (30\%), Review Score (20\%), Click-Through Rate (20\%), Engagement (15\%), and Recent Activity (15\%).
+
+\item Continuous improvement of ranking accuracy through behavioral interaction tracking.
+
+\item Generation of key performance metrics including total views, clicks, calls, CTR, and engagement score.
+
+\item Analytical insights into category distribution, geographic density, and user search patterns.
+
+\end{itemize}
+
+\section{ Performance and User Experience Outcomes}
+
+\begin{itemize}
+
+\item Enhanced search precision and reduced irrelevant results.
+
+\item Real-time dashboard synchronization without manual refresh.
+
+\item Responsive and device-independent user interface.
+
+\item Improved transparency in business performance visibility.
+
+\end{itemize}
+
+\section{Administrative and Strategic Outcomes}
+
+\begin{itemize}
+
+\item Streamlined business approval workflow with real-time monitoring.
+
+\item Centralized analytics dashboard for operational oversight.
+
+\item Reduction in static or advertisement-driven ranking bias.
+
+\item Establishment of a scalable SaaS foundation for future expansion, AI personalization, and monetization strategies.
+
+\end{itemize}
+
+\section{Overall Impact}
+
+The proposed system is expected to bridge the gap between traditional static business listing platforms and intelligent, behavior-driven discovery systems. By integrating geospatial indexing, machine learning-based ranking, and real-time architecture, the platform aims to significantly enhance relevance, transparency, scalability, and user satisfaction in hyperlocal business discovery.
+
+% ---------------- CHAPTER 12 ----------------
+
+\chapter{Conclusion}
+
+This project presented the design and implementation of an AI-Based Hyperlocal Smart Discovery System that integrates geospatial intelligence, behavioral analytics, cloud-native infrastructure, and real-time communication into a unified SaaS-oriented architecture.
+
+The system effectively addresses the limitations of conventional directory-based platforms by introducing a dynamic, multi-factor ranking framework driven by user interaction data and contextual proximity. By leveraging weighted parameters such as geographic distance, review credibility, engagement metrics, click-through rate, and recency of activity, the platform enhances search relevance while minimizing static or advertisement-driven bias.
+
+From an architectural standpoint, the solution adopts a modular three-layer design comprising presentation, application, and data layers, ensuring maintainability, scalability, and extensibility. The use of asynchronous API handling, optimized geospatial indexing through MongoDB 2dsphere structures, and persistent WebSocket connections enables low-latency operations and real-time system synchronization. Cloud deployment readiness further ensures horizontal scalability and production viability.
+
+The project demonstrates comprehensive full-stack engineering capability, combining backend system design, database optimization, API orchestration, machine learning-based scoring mechanisms, and analytics integration. It reflects industry-aligned software engineering practices including modularity, security enforcement, data-driven decision modeling, and performance optimization.
+
+In conclusion, the proposed system establishes a robust and scalable framework for intelligent hyperlocal business discovery. It not only enhances user-centric search precision but also provides actionable analytical insights for administrative oversight. The architecture and methodology presented in this work can serve as a foundational model for future AI-driven local commerce platforms, recommendation systems, and commercially deployable SaaS ecosystems.
+
+\end{document}

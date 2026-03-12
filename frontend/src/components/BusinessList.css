@@ -1,0 +1,72 @@
+.business-list {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.business-list h2 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.business-card {
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  transition: transform 0.2s;
+}
+
+.business-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.business-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.business-header h3 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.category-badge {
+  background: #3498db;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.business-address {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.business-stats {
+  display: flex;
+  gap: 15px;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.business-contact,
+.business-timings {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Business Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1>🎯 Local Business Finder</h1>
+            <div class="nav-menu">
+                <button onclick="showPage('home')" class="nav-btn">🏠 Home</button>
+                <button onclick="showPage('add')" class="nav-btn">➕ Add Business</button>
+                <button onclick="showPage('login')" class="nav-btn" id="loginBtn">🔐 Login</button>
+                <button onclick="logout()" class="nav-btn" id="logoutBtn" style="display:none">🚪 Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="homePage" class="page active">
+        <div class="container">
+            <div class="search-section">
+                <h2>🔍 Find Local Businesses Near You</h2>
+                <div class="filters">
+                    <select id="category">
+                        <option value="">📂 All Categories</option>
+                        <option value="coaching">📚 Coaching</option>
+                        <option value="kirana">🛒 Kirana</option>
+                        <option value="plumber">🔧 Plumber</option>
+                        <option value="electrician">⚡ Electrician</option>
+                        <option value="salon">💇 Salon</option>
+                        <option value="restaurant">🍽️ Restaurant</option>
+                        <option value="medical">🏥 Medical</option>
+                    </select>
+                    
+                    <select id="radius">
+                        <option value="200">📍 200m</option>
+                        <option value="500" selected>📍 500m</option>
+                        <option value="1000">📍 1km</option>
+                        <option value="2000">📍 2km</option>
+                    </select>
+                    
+                    <button onclick="searchNearby()" class="btn-primary">🔎 Search Nearby</button>
+                </div>
+            </div>
+
+            <div class="results-section">
+                <div id="map" class="map-container"></div>
+                <div id="businessList" class="business-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Page -->
+    <div id="loginPage" class="page">
+        <div class="auth-container">
+            <div class="auth-card">
+                <h2>Login</h2>
+                <form onsubmit="login(event)">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+                <p>Don't have account? <a href="#" onclick="showPage('register')">Register</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Page -->
+    <div id="registerPage" class="page">
+        <div class="auth-container">
+            <div class="auth-card">
+                <h2>Register</h2>
+                <form onsubmit="register(event)">
+                    <input type="text" id="regName" placeholder="Name" required>
+                    <input type="email" id="regEmail" placeholder="Email" required>
+                    <input type="password" id="regPassword" placeholder="Password" required>
+                    <input type="tel" id="regPhone" placeholder="Phone">
+                    <select id="regRole">
+                        <option value="user">User</option>
+                        <option value="business_owner">Business Owner</option>
+                    </select>
+                    <button type="submit" class="btn-primary">Register</button>
+                </form>
+                <p>Have account? <a href="#" onclick="showPage('login')">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Business Page -->
+    <div id="addPage" class="page">
+        <div class="container">
+            <div class="form-card">
+                <h2>Add New Business</h2>
+                <form onsubmit="addBusiness(event)">
+                    <input type="text" id="bizName" placeholder="Business Name" required>
+                    
+                    <select id="bizCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="coaching">Coaching</option>
+                        <option value="kirana">Kirana</option>
+                        <option value="plumber">Plumber</option>
+                        <option value="electrician">Electrician</option>
+                        <option value="salon">Salon</option>
+                        <option value="restaurant">Restaurant</option>
+                        <option value="medical">Medical</option>
+                    </select>
+                    
+                    <textarea id="bizDesc" placeholder="Description" rows="3"></textarea>
+                    <input type="text" id="bizAddress" placeholder="Address" required>
+                    
+                    <button type="button" onclick="getCurrentLocation()" class="btn-secondary">
+                        Get Current Location
+                    </button>
+                    
+                    <div class="location-inputs">
+                        <input type="number" step="any" id="bizLat" placeholder="Latitude" required>
+                        <input type="number" step="any" id="bizLng" placeholder="Longitude" required>
+                    </div>
+                    
+                    <input type="tel" id="bizPhone" placeholder="Phone">
+                    
+                    <div class="time-inputs">
+                        <input type="time" id="bizOpen" placeholder="Opening Time">
+                        <input type="time" id="bizClose" placeholder="Closing Time">
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Add Business</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
